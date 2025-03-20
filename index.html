@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BASANT DAIRY</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+  <div class="container">
+
+    <h2>BASANT DAIRY</h2>
+
+    <input type="date" id="date" required placeholder="Date">
+
+    <div style="position: relative;">
+      <select class="active" onchange="handleChangeItem(event)" default="none" id="item" required placeholder="select">
+        <option value="------------NONE------------" selected>------------NONE------------</option>
+        <option value="MILK">MILK</option>
+        <option value="COW MILK">COW MILK</option>
+        <option value="DAHI">DAHI</option>
+        <option value="PANEER">PANEER</option>
+        <option value="MAKHAN">MAKHAN</option>
+        <option value="CREAM">CREAM</option>
+        <option value="KHOYA">KHOYA</option>
+        <option value="LASSI">LASSI</option>
+        <option value="DESI GHEE">DESI GHEE</option>
+        <option value="COW DESI GHEE">COW DESI GHEE</option>
+      </select>
+      <!-- <input list="items" onchange="handleChangeItem(event)" id="item" required placeholder=" "> -->
+      <label id="label" for="item">Item</label>
+    </div>
+
+    <div class="qtySection" style="position: relative;">
+      <input type="text" id="QTY" onchange="setTotal()" required placeholder=" " autocomplete="off">
+      <label id="label" for="QTY">QTY</label>
+    </div>
+    <button id="openDialog" title="Add the custom Quantity">+</button>
+
+
+    <div style="position: relative;">
+      <input type="number" class="active" id="rate" value="0" onchange="setTotal()" required placeholder=" " disabled>
+      <label id="label" for="rate">Rate</label>
+    </div>
+
+    <div style="position: relative;">
+      <input type="number" class="active" value="0" id="amount" placeholder=" " disabled>
+      <label id="label" for="amount">Amount</label>
+    </div>
+
+    <div id="checkbox">
+      <input type="checkbox" id="chk">
+      <label for="chk">Return</label>
+    </div>
+
+    <div class="btns">
+      <button onclick="addvalue()" title="Add to the list">Add</button>
+      <button onclick="submit()" title="Submit the list" id="submitBtn">Submit</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <td>Date</td>
+          <td>Item</td>
+          <td>QTY</td>
+          <td>Rate</td>
+          <td>Amount</td>
+          <td>Return</td>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+  <div class="btns">
+    
+  </div>
+
+  <dialog id="myDialog">
+    <form method="dialog">
+      <header>
+        <input type="number" id="qtyInputBox" required>
+        <input type="button" id="addInput" value="+">
+      </header>
+      <ol id="addQTY">
+      </ol>
+      <button id="closeDialog">close</button>
+    </form>
+  </dialog>
+
+
+</body>
+<script src="script.js"></script>
+
+</html>
