@@ -31,7 +31,9 @@ const itemsWithRates = {
     "KHOYA": 460,
     "LASSI": 30,
     "DESI GHEE": 640,
-    "COW DESI GHEE": 750
+    "COW DESI GHEE": 750,
+    "LIFAFA": 150,
+    "RABBAD": 280
 };
 
 // calculate and set the total amount
