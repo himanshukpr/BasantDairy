@@ -7,6 +7,19 @@ const formattedDate = today.toISOString().split('T')[0];
 
 // Set the default value of the input field to today's date
 document.getElementById('date').value = formattedDate;
+// to get the date of the previous day and the next day
+function lastday(){
+    var date = new Date(document.getElementById('date').value);
+    var tomorrow = new Date(date.getTime() - 86400000);
+    document.getElementById('date').value = tomorrow.toISOString().split('T')[0];
+}
+function nextday() {
+    let date = document.getElementById('date').value;
+    let dateObj = new Date(date);
+    dateObj.setDate(dateObj.getDate() + 1);
+    let nextDay = dateObj.toISOString().split('T')[0];
+    document.getElementById('date').value = nextDay;
+}
 
 const itemsWithRates = {
     "MILK": 70,            // Rate in your preferred currency (e.g., INR)
@@ -26,7 +39,7 @@ function setTotal() {
     let qty = document.getElementById('QTY').value;
     let rate = document.getElementById('rate').value;
     let amount = document.getElementById('amount');
-    amount.value = qty * rate;
+    amount.value = Math.ceil(parseFloat(qty) * rate);
     console.log(qty, rate, qty * rate)
 }
 
@@ -120,56 +133,19 @@ function submit() {
         });
 }
 
+const Evaluate = document.getElementById('Evaluate');
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('keypress',(e)=>{
+    console.log(e.key)
+    if(e.key == 'Enter')
+    {
+        Evaluate.click();
+    }
+})
 
-           
-    const addInput = document.getElementById('addInput');
-    let inputs = []
-
-    addInput.addEventListener('click', () => {
-        let qtyInputBox = document.getElementById("qtyInputBox");
-        let addQTY = document.getElementById('addQTY');
-        let idValue = 0;
-
-        if(qtyInputBox.value == '') return
-
-        console.log(qtyInputBox.value)
-
-        let newinput = document.createElement('li')
-        newinput.setAttribute('id', idValue);
-        newinput.innerHTML = qtyInputBox.value
-        addQTY.appendChild(newinput)
-        inputs.push(newinput)
-
-        idValue++;
-
-        qtyInputBox.value = null
-
-    })
-
-
-    // ------------------------ initial section
-    const dialog = document.getElementById('myDialog');
-    const openDialogButton = document.getElementById('openDialog');
-    const closeDialogButton = document.getElementById('closeDialog');
-
-    
-
-    openDialogButton.addEventListener('click', function () {
-        dialog.showModal();
-    });
-    closeDialogButton.addEventListener('click', function () {
-        let QTY = document.getElementById('QTY');
-        let result = 0;
-        inputs.forEach(ele => {
-            result += parseFloat(ele.innerHTML)
-            console.log(ele)
-            addQTY.removeChild(ele)
-        })
-        inputs = []
-        QTY.value = result;
-        setTotal()
-        dialog.close();
-    });
-});
+Evaluate.addEventListener('click', () => {
+    let QTY = document.getElementById("QTY");
+    QTY.value = eval(QTY.value);
+    console.log(QTY)
+    setTotal();
+})

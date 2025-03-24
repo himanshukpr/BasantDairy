@@ -14,7 +14,12 @@
 
     <h2>BASANT DAIRY</h2>
 
-    <input type="date" id="date" required placeholder="Date">
+    <div>
+      <input type="date" id="date" required placeholder="Date">
+      <button onclick="lastday()"><</button>
+      <button onclick="nextday()">></button>
+    </div>
+    <!-- <input type="button" value=">"> -->
 
     <div style="position: relative;">
       <select class="active" onchange="handleChangeItem(event)" default="none" id="item" required placeholder="select">
@@ -30,15 +35,15 @@
         <option value="DESI GHEE">DESI GHEE</option>
         <option value="COW DESI GHEE">COW DESI GHEE</option>
       </select>
-      <!-- <input list="items" onchange="handleChangeItem(event)" id="item" required placeholder=" "> -->
       <label id="label" for="item">Item</label>
     </div>
 
     <div class="qtySection" style="position: relative;">
-      <input type="number" id="QTY" onchange="setTotal()" required placeholder=" " autocomplete="off">
+      <input type="text" id="QTY" onchange="setTotal()" required placeholder=" " autocomplete="off">
       <label id="label" for="QTY">QTY</label>
     </div>
-    <button id="openDialog" title="Add the custom Quantity">+</button>
+    <button id="Evaluate" title="Calculate the Quantity" >Qty</button>
+    <!-- <button id="openDialog" title="Add the custom Quantity">+</button> -->
 
 
     <div style="position: relative;">

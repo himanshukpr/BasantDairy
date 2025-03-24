@@ -181,47 +181,11 @@ table tbody tr:nth-child(even) {
     justify-content: center;
 }
 
-
-
-
 .qtySection{
     width: calc(100% - 90px);
     display: inline-block ;
 }
-
-dialog{
-    margin: auto;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid black;
-}
-dialog header{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}
-dialog header input[type=button]{
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    width: 50px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-dialog form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#addQTY{
-    /* list-style: none; */
-    width: 80%;
-    & li{
-        text-indent: 5px;
-        /* margin-top: 5px; */
-        width: 80%;
-        /* border-bottom: solid 1px black; */
-    }
+#date{
+    width: calc(100% - 140px);
+    display: inline-block ;
 }
